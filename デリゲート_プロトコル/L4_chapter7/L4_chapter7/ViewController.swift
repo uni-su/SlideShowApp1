@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return 40 // 40個のデータがあるという意味
         }
 
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
             // 再利用キューからセルを取得する
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
