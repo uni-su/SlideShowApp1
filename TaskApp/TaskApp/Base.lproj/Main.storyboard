@@ -57,10 +57,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vHf-YF-dJa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="I0U-P8-JVd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="I0U-P8-JVd">
+                            <connections>
+                                <segue destination="J2V-bO-5zI" kind="show" id="xKE-0M-zli"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ebb-sN-Jia" id="CwG-Du-aqZ"/>
+                        <segue destination="J2V-bO-5zI" kind="show" identifier="cellSegue" id="3Ni-Go-Hp9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,8 +91,88 @@
             </objects>
             <point key="canvasLocation" x="-86.25954198473282" y="-27.464788732394368"/>
         </scene>
+        <!--Input View Controller-->
+        <scene sceneID="dd1-oA-hwI">
+            <objects>
+                <viewController id="J2V-bO-5zI" customClass="InputViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gl9-mh-u8e">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bc-TU-eBl">
+                                <rect key="frame" x="10" y="113" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yur-zj-6jL">
+                                <rect key="frame" x="10" y="188" width="373" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d9p-QP-BRd">
+                                <rect key="frame" x="10" y="219" width="373" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="eyf-hU-L0P"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidanon proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="QvX-aJ-Ond">
+                                <rect key="frame" x="10" y="349" width="373" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="jRS-GW-Aj2"/>
+                                </constraints>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SzO-LB-0Vb">
+                                <rect key="frame" x="10" y="144" width="373" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="slK-gP-x3N"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yur-zj-6jL" firstAttribute="top" secondItem="SzO-LB-0Vb" secondAttribute="bottom" constant="10" id="4r0-0D-oWR"/>
+                            <constraint firstItem="slK-gP-x3N" firstAttribute="trailing" secondItem="SzO-LB-0Vb" secondAttribute="trailing" constant="10" id="57S-fS-aSk"/>
+                            <constraint firstItem="Yur-zj-6jL" firstAttribute="leading" secondItem="slK-gP-x3N" secondAttribute="leading" constant="10" id="AIK-x5-aez"/>
+                            <constraint firstItem="d9p-QP-BRd" firstAttribute="top" secondItem="Yur-zj-6jL" secondAttribute="bottom" constant="10" id="GBP-EZ-Prl"/>
+                            <constraint firstItem="6bc-TU-eBl" firstAttribute="leading" secondItem="slK-gP-x3N" secondAttribute="leading" constant="10" id="I4i-JQ-VJW"/>
+                            <constraint firstItem="SzO-LB-0Vb" firstAttribute="top" secondItem="6bc-TU-eBl" secondAttribute="bottom" constant="10" id="I9a-g3-blL"/>
+                            <constraint firstItem="6bc-TU-eBl" firstAttribute="top" secondItem="slK-gP-x3N" secondAttribute="top" constant="10" id="R56-Qu-uSz"/>
+                            <constraint firstItem="QvX-aJ-Ond" firstAttribute="top" secondItem="d9p-QP-BRd" secondAttribute="bottom" constant="10" id="Rqo-i1-acc"/>
+                            <constraint firstAttribute="trailing" secondItem="QvX-aJ-Ond" secondAttribute="trailing" constant="10" id="UkO-Y3-X0d"/>
+                            <constraint firstItem="QvX-aJ-Ond" firstAttribute="leading" secondItem="Gl9-mh-u8e" secondAttribute="leading" constant="10" id="gon-zp-36f"/>
+                            <constraint firstItem="slK-gP-x3N" firstAttribute="trailing" secondItem="d9p-QP-BRd" secondAttribute="trailing" constant="10" id="iYy-ZN-x4d"/>
+                            <constraint firstItem="slK-gP-x3N" firstAttribute="trailing" secondItem="Yur-zj-6jL" secondAttribute="trailing" constant="10" id="tVN-fs-8Ye"/>
+                            <constraint firstItem="d9p-QP-BRd" firstAttribute="leading" secondItem="slK-gP-x3N" secondAttribute="leading" constant="10" id="tsj-zV-YG2"/>
+                            <constraint firstItem="slK-gP-x3N" firstAttribute="trailing" secondItem="6bc-TU-eBl" secondAttribute="trailing" constant="10" id="vBx-vK-ebc"/>
+                            <constraint firstItem="SzO-LB-0Vb" firstAttribute="leading" secondItem="slK-gP-x3N" secondAttribute="leading" constant="10" id="wu8-CF-Srd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="C51-Js-jlw"/>
+                    <connections>
+                        <outlet property="contentsTextView" destination="d9p-QP-BRd" id="W3i-Io-xnp"/>
+                        <outlet property="datePicker" destination="QvX-aJ-Ond" id="Goy-q8-Vf7"/>
+                        <outlet property="titleTextField" destination="SzO-LB-0Vb" id="e4d-dA-9Xv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lM9-Ca-27u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="-27"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3Ni-Go-Hp9"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
